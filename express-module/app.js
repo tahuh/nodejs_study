@@ -8,12 +8,14 @@ const app = express();
 // set-up the event listener
 // or 'routing'
 app.use((req, res) => {
-    res.writeHead(
-        200, {'Content-Type': 'text/html'}
-    )
-    res.end(
-        '<h1>Hello Express!</h1>'
-    )
+    const outputArray = [];
+    for(var i = 0; i < 10; i++) {
+        outputArray.push({
+            count:i,
+            name:'name - ' + i
+        })
+    }
+    res.send(outputArray);
 });
 
 app.listen(3000, () =>{
