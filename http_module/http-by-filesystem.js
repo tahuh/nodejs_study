@@ -79,3 +79,28 @@ const imageServer = http.createServer((req, res)=> {
 }).listen(3002, () => {
     console.log("server is running at the port 3002")
 })
+
+// PDF server
+const pdfServer = http.createServer((req, res)=> {
+    // implement our server!
+    fs.readFile("NEJM_Dynamic study_2022.pdf", (err, data) =>{
+        if(err){console.log("Error has raised!");}
+        // without error, we have html document content
+        // in variable name called data which is the second
+        // argument of this arrow function
+        // this case we are reading an png file so the header
+        // must be the image/png
+        res.writeHead(
+            200, {'Content-Type': 'application/pdf'}
+        );
+        // res.end(
+        //     data
+        // );
+
+        // or we can do this in explicit way below
+        const pdfDocument = data;
+        res.end(pdfDocument);
+    })
+}).listen(3003, () => {
+    console.log("server is running at the port 3003")
+})
