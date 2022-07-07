@@ -9,8 +9,6 @@ const session = require('express-session');
 // create server application
 const app = express();
 
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended:false}));
 app.use(
     session({
         secret :'secret key',
@@ -19,7 +17,10 @@ app.use(
     })
 );
 
-app.use((req, res) => {})
+app.use((req, res) => {
+    req.session.now = (new Date()).toUTCString();
+    res.send(req.session);
+})
 
 app.listen(3000, () =>{
     console.log('express server is running at port 3000')
