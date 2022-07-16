@@ -160,6 +160,11 @@ git clone https://github.com/tahuh/nodejs_study.git
 cd mysql_text
 supervisot app.js
 ```
+
+Then, open the web browser (such as `Chrome`) and type `localhost:3000` on address.
+
+Server will automatically running!.
+
 ### Further suggested topics for reading
 
 - HTML
