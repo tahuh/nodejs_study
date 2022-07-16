@@ -7,8 +7,8 @@ const pug = require('pug'); // template engine
 // connect to the MySQL
 const mysqlClient = mysql.createConnection({
     host:"localhost",
-    user:"tahuh",
-    password: "Celestial1124!"
+    user:"user",
+    password: "P@ssword1234"
 });
 
 // Create database if not exist
