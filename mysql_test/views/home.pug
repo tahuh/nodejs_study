@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+    head
+        title IMBdx
+    body(style="font-family: sans-serif;")
+        h1 IMBdx sequencing sample lists - DETECT Team
+        div
+            a(href="/insert" style="font-size: 30px; text-decoration: none") Insert Data
+        div
+            if numSamples === 0
+                h2 No data
+            else
+                table(width="100%" border="1" style="text-align:center")
+                    tr
+                        td DELETE
+                        td EDIT
+                        td ID
+                        td LabID
+                        td Donor Name
+                        td Sample Date
+                        td Sample Type 
+                        td DNA Concentration
+
+                    - sqlData.forEach((item, index) => {
+                        tr
+                            td
+                                a(href="/delete/" + item.id) DELETE
+                            td
+                                a(href="/edit/" + item.id) EDIT
+                            td= item.id
+                            td= item.labId
+                            td= item.donor
+                            td= item.sampleDate
+                            td= item.sampleType
+                            td= item.dnaConc
+                    - })
+        

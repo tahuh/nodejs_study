@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset="utf-8")
+        title IMBdx
+    body
+        h1 IMBdx sequencing sample insert page - DETECT Team
+        form#expr-form(method='post' action='/insert')
+            fieldset
+                legend
+                strong
+                    | Insert experiment data!
+                table
+                    tr
+                        td
+                            label(for='labid') LabID 
+                        td
+                            input#labid(type='text' name='labid' value='LabID')
+                    tr
+                        td
+                            label(for='donor') Donor Name 
+                        td
+                            input#donor(type='text' name='donor' value='Donorname')
+                    tr
+                        td
+                            label(for='sample-date') Sampling date 
+                        td
+                            input#sample-date(type='text' name='sample-date' value='YYYY.MM.DD')
+                    tr
+                        td
+                            label(for='dna-conc') DNA concenration (ng/mL) 
+                        td
+                            input#dna-conc(type='number' name='dna-conc' value='20' min='0' step='0.01')
+                    tr
+                        td
+                            label(for='sample-type') Sample type 
+                        td
+                            select(name='sample-type' form='expr-form')
+                                option(value='cfDNA') cfDNA
+                                option(value='gDNA') gDNA
+                                option(value='PBMC') PBMC
+                                option(value='FF') FF
+                                option(value='FFPE') FFPE
+                    tr
+                        td
+                            input(type='submit')
